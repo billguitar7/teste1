@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>Uma Mensagem Especial para Você</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+        /* Reset básico e melhor compatibilidade */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased; /* Melhora a renderização da fonte no iOS */
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            -webkit-overflow-scrolling: touch; /* Rolagem mais suave no iOS */
+        }
+
+        body {
+            background-color: #FFF8F8;
+            font-family: 'Playfair Display', serif;
+            color: #5b5b5b;
+            transition: background-image 1s ease-in-out;
+        }
+
+        /* Container de página que ocupa a tela toda */
+        .pagina {
+            display: none; /* Escondido por padrão */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh; /* Usa vh para altura total da tela */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Classe para mostrar a página ativa */
+        .pagina.ativa {
+            display: -webkit-box; display: -ms-flexbox; display: flex;
+            -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
+            -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
+            -webkit-box-align: center; -ms-flex-align: center; align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 25px;
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #FFCDD2;
+        }
+
+        h1 { color: #D32F2F; font-size: 2.2em; line-height: 1.3; }
+        p { font-size: 1.1em; line-height: 1.6; }
+
+        .botoes { margin-top: 30px; }
+
+        .btn {
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            background-color: #C2185B;
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin: 10px;
+            font-size: 1.2em;
+            border: none;
+            font-family: 'Playfair Display', serif;
+            display: inline-block;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn.sair { background-color: #757575; }
+        
+        /* Estilos da Carta */
+        #pagina-carta .carta-container { max-width: 800px; text-align: left; }
+        #pagina-carta h1 { font-family: 'Playfair Display', serif; font-size: 2.8em; font-style: italic; }
+        #pagina-carta p { font-family: 'Lora', serif; font-size: 1.1em; line-height: 1.8; text-align: justify; }
+        #pagina-carta .assinatura { text-align: right; font-style: italic; margin-top: 40px; font-size: 1.2em; color: #C2185B; }
+        #pagina-carta .destinatario { text-align: right; font-weight: bold; margin-top: 5px; font-size: 1.1em; color: #C2185B; }
+    </style>
+</head>
+<body>
+
+    <!-- PÁGINA 1 -->
+    <div id="passo1" class="pagina ativa">
+        <div class="container">
+            <h1>Tenho que te falar algumas coisas...</h1>
+            <p>Deseja Saber?</p>
+            <div class="botoes">
+                <!-- MUDANÇA: removido onclick e adicionado data-target -->
+                <button data-target="passo2" class="btn">Sim, quero saber!</button>
+                <button data-target="passo1" class="btn sair">Não, sair</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 2 -->
+    <div id="passo2" class="pagina">
+        <div class="container">
+            <h1>Seu coração está preparado?</h1>
+            <p>O que está guardado aqui é valioso. Tem certeza que quer continuar?</p>
+            <div class="botoes">
+                <!-- MUDANÇA: removido onclick e adicionado data-target -->
+                <button data-target="passo3" class="btn">Estou preparada!</button>
+                <button data-target="passo1" class="btn sair">Voltar...</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 3 -->
+    <div id="passo3" class="pagina">
+        <div class="container">
+            <h1>O próximo clique revelará um presente do meu coração para o seu</h1>
+            <div class="botoes">
+                <!-- MUDANÇA: removido onclick e adicionado data-target -->
+                <button data-target="pagina-carta" class="btn">Clique para Ver</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 4: A CARTA FINAL -->
+    <div id="pagina-carta" class="pagina">
+        <div class="carta-container">
+            <h1>Karla Gontijo❤️</h1>
+            <p>Amor,</p>
+            <p>Meu coração transborda gratidão. Em tantos momentos eu dobrei meus joelhos pedindo a Deus que me mostrasse o caminho, que me apresentasse alguém que fosse mais do que um amor terreno, alguém que me ajudasse a caminhar rumo ao Céu. E Ele, na Sua bondade, me respondeu com você.</p>
+            <p>Quando olho para a sua vida, para a forma como você ama, como cuida, como busca a presença de Deus, vejo o quanto Ele é generoso comigo. Você é uma mulher incrível, de uma beleza que vai muito além do que se vê — é a beleza da alma, da fé, da coragem de viver com propósito.</p>
+            <p>Sou completamente apaixonado por cada detalhe seu: pelo jeito como você sorri, pelo brilho dos seus olhos quando fala de algo que ama, pela leveza que você traz até nos dias mais pesados. Amo a sua caminhada, os seus sonhos, e quero estar ao seu lado para aplaudir cada conquista e segurar a sua mão em cada desafio.</p>
+            <p>Eu te admiro e te respeito com um amor que eu peço a Deus todos os dias para ser puro e verdadeiro. Você é, para mim, sinal do cuidado de Deus, resposta de oração, presente que não canso de agradecer.</p>
+            <p>Que a gente continue crescendo juntos, na fé e no amor, sendo um para o outro incentivo a buscar as coisas do alto.</p>
+            <p>Sou grato por você existir, por ser quem você é, e por Deus ter me permitido chamar você de minha.</p>
+            <div class="destinatario">Minha Karla Letícia Gontijo Oliveira❤️</div>
+            <div class="assinatura">Do Seu Bill Oliveira❤️</div>
+            <div class="assinatura">🌼</div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarPagina(idDaPagina) {
+            document.querySelectorAll('.pagina').forEach(pagina => {
+                pagina.classList.remove('ativa');
+            });
+
+            const paginaAlvo = document.getElementById(idDaPagina);
+            if (paginaAlvo) {
+                paginaAlvo.classList.add('ativa');
+            }
+
+            if (idDaPagina === 'pagina-carta') {
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center';
+                document.body.style.backgroundAttachment = 'fixed';
+            } else {
+                document.body.style.backgroundImage = 'none';
+                document.body.style.backgroundColor = '#FFF8F8';
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        // NOVO CÓDIGO PARA ADICIONAR OS EVENTOS DE CLIQUE
+        document.addEventListener('DOMContentLoaded', () => {
+            const botoes = document.querySelectorAll('.btn');
+            botoes.forEach(botao => {
+                botao.addEventListener('click', () => {
+                    const idAlvo = botao.dataset.target;
+                    if (idAlvo) {
+                        mostrarPagina(idAlvo);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
